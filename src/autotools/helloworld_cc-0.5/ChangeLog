@@ -1,0 +1,26 @@
+0.4:
+
+2010-04-30  David King  <davidk@openismus.com>
+
+	Extensive modernisation
+
+	* Makefile.am: Non-recursive build and drop libtool hackery.
+	* configure.ac: Drop all deprecated macros, use modern equivalents.
+	* autogen.sh: Simplify.
+
+0.3:
+
+2002-12-03  Murray Cumming  <murrayc@murrayc.com>
+
+	* configure.ac: Renamed from configure.in.
+	* autogen.sh: Added for convenience.
+	* configure.ac: Changed AC_PROG_RANLIB to AC_PROG_LIBTOOL
+
+0.2:
+
+2000-04-27  Murray Cumming  <murrayc@usa.net>
+
+	* configure.in: Changed name in AM_INIT_AUTOMAKE helloworld_cc from
+	hello.
+	* Checked with latest gcc (Redhat 6.2 + gcc 2.95): No need for
+	'automake -i' anymore.
