@@ -1,0 +1,1 @@
+var test = (function () {\n\tvar testPrototype = {\n\n\t};\n\n\treturn {\n\t\tcreate : function (attrs) {\n\t\t\tvar o = Object.create(testPrototype);\n\t\t\textend(o, attrs);\n\t\t\treturn o;\n\t\t}\n \t};\n}());

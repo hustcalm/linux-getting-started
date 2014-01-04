@@ -1,0 +1,79 @@
+#! /bin/bash
+
+function help () {
+    echo "jazz - A simple script that makes using the Jasmine testing framework in a standalone project a little simpler."
+    echo ""
+    echo "    jazz init                  - include jasmine in the project";
+    echo "    jazz create FunctionName   - creates ./src/FunctionName.js ./spec/FunctionNameSpec.js";
+    echo "    jazz run                   - runs tests in browser";
+}
+
+JASMIME_LINK="http://cloud.github.com/downloads/pivotal/jasmine/jasmine-standalone-1.3.1.zip"
+#JASMIME_LINK="https://github.com/pivotal/jasmine/blob/master/dist/jasmine-standalone-1.3.1.zip"
+
+if [ $1 ] 
+then
+  case "$1" in
+  "init")
+    echo "Downloading Jasmine . . ."
+    echo "Link Address is $JASMIME_LINK"
+    #curl $JASMIME_LINK 
+
+    # Github need authentication, refer to https://help.github.com/articles/downloading-files-from-the-command-line
+    #curl -u 'licalmer@gmail.com' -L $JASMIME_LINK 
+    #wget $JASMIME_LINK 
+
+    echo "Copying zip package..."
+    cp ../jasmine-standalone-1.3.1.zip .
+
+    echo "Now extracting files..."
+    unzip -q `basename $JASMIME_LINK` 
+
+    echo "Removing sample files..."
+    rm `basename $JASMIME_LINK` src/*.js spec/*.js
+    
+    if which xattr > /dev/null && [ "`xattr SpecRunner.html`" = "com.apple.quarantine" ]
+    then
+      xattr -d com.apple.quarantine SpecRunner.html
+    fi
+
+    sed -i -e "12,18d" SpecRunner.html
+    echo "Jasmine initialized!"
+  ;;
+  "create")
+    if [ $2 ]
+    then 
+      echo "function $2 () {\n\n}" > ./src/$2.js
+      echo "var $2 = (function () {\n\tvar $2Prototype = {\n\n\t};\n\n\treturn {\n\t\tcreate : function (attrs) {\n\t\t\tvar o = Object.create($2Prototype);\n\t\t\textend(o, attrs);\n\t\t\treturn o;\n\t\t}\n \t};\n}());" > src/$2.js
+      echo "describe('$2', function () {\nit('runs');\n});" > ./spec/$2Spec.js
+      sed -i -e "11a\\
+      <script src='src/$2.js'></script>\\
+      <script src='spec/$2Spec.js'></script>
+      " SpecRunner.html
+      echo "Created:"
+      echo "\t- src/$2.js"
+      echo "\t- spec/$2Spec.js"
+      echo "Edited:"
+      echo "\t- SpecRunner.html"
+    else
+      echo 'please add a name for the file'
+    fi
+  ;;
+  "run")
+    if which xdg-open > /dev/null
+    then
+      xdg-open ./SpecRunner.html
+    elif which gnome-open > /dev/null
+    then
+      gnome-open ./SpecRunner.html
+    else
+      echo "Please open SpecRunner.html in your browser"
+    fi
+  ;;
+  *)
+    help;
+  ;;
+  esac
+else
+  help;
+fi
