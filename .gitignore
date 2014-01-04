@@ -76,4 +76,4 @@ src/linux/advanced-linux-programming/ALP-listings/chapter-9/bit-pos-asm
 src/linux/advanced-linux-programming/ALP-listings/chapter-9/bit-pos-loop
 
 # Compiled specific files for Makefiles-by-example Sample Code
-makefile/makefile-by-examples/hello
+src/makefile/makefile-by-examples/hello
