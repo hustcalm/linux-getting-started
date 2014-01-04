@@ -8,6 +8,8 @@ Useful Links
 *   [Bash Reference Manual - GNU](http://www.gnu.org/software/bash/manual/bashref.html)
 
 ### Make and Makefile
+*   [Makefile Conventions](http://www.gnu.org/prep/standards/html_node/Makefile-Conventions.html)
 *   [Using Automake and Autoconf with C++](http://www.openismus.com/documents/linux/automake/automake.shtml)
 *   [Autotools: a practitioner's guide to Autoconf, Automake and Libtool](http://www.freesoftwaremagazine.com/books/autotools_a_guide_to_autoconf_automake_libtool)
 *   [Makefile Getting Started](http://oucsace.cs.ohiou.edu/~bhumphre/makefile.html)
+*   [Makefiles by example](http://mrbook.org/tutorials/make/)
