@@ -13,3 +13,7 @@ Useful Links
 *   [Autotools: a practitioner's guide to Autoconf, Automake and Libtool](http://www.freesoftwaremagazine.com/books/autotools_a_guide_to_autoconf_automake_libtool)
 *   [Makefile Getting Started](http://oucsace.cs.ohiou.edu/~bhumphre/makefile.html)
 *   [Makefiles by example](http://mrbook.org/tutorials/make/)
+*   [Multi-file projects and the GNU Make utility](http://www.elitecoders.de/mags/cscene/CS2/CS2-10.html)
+
+### Linux
+*   [DistroWatch](http://www.distrowatch.com)
