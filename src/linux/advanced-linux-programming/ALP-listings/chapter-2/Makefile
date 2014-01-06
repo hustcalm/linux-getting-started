@@ -30,4 +30,4 @@ app:		LDLIBS += -L. -ltest
 app:		app.c libtest.a
 
 tifftest:	CFLAGS += -static
-tifftest:	LDLIBS += -ltiff -ljpeg -lz
+tifftest:	LDLIBS += -ltiff -ljpeg -lz -lm 
