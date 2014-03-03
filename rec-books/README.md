@@ -12,3 +12,4 @@ Recommendation Books
 *   [LDD - Linux Device Drivers](http://lwn.net/Kernel/LDD3/)
 *   [Understanding the Linux Kernel]
 *   [Linux Kernel Development]
+*   [The Linux Kernel](http://www.tldp.org/LDP/tlk/tlk.html)
